@@ -52,7 +52,7 @@ export const App = () => {
 
   return (
     <>
-      <div className={styles.wrapper }>
+      <div className={styles.wrapper}>
         <Header />
         <main className={styles.wrapper__content}>
           <Outlet />
