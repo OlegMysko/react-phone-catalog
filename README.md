@@ -14,7 +14,7 @@
 A modern **Product Catalog** application built with **React, TypeScript, and Redux**.
 This project demonstrates global state management, routing, async data fetching, and scalable frontend architecture.
 
-## 🔧 Technologies
+## Technologies
 - React
 - TypeScript
 - Redux / Redux Toolkit
@@ -22,7 +22,7 @@ This project demonstrates global state management, routing, async data fetching,
 - SCSS Modules
 - LocalStorage
 
-##  Key Features
+## Key Features
 - Product catalog (Phones / Tablets / Accessories)
 - Sorting and pagination synced with URL
 - Product details page
