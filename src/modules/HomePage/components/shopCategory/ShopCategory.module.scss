@@ -29,6 +29,7 @@ grid-column: span 4;
 }
 
 @include mixin.on-desktop{
+
   grid-column: span 8;
 }
 }
@@ -41,7 +42,7 @@ grid-column: span 4;
 
   @include mixin.on-desktop{
     &:hover{
-      transform: scale(1.09);
+     transform: scale(1.05);
     }
   }
 }

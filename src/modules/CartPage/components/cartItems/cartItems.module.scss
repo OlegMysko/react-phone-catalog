@@ -99,7 +99,13 @@ justify-content: space-between;
 }
 
 &__count{
-  color: #4219D0;
+  font-family: Mont;
+font-weight: 600;
+font-size: 14px;
+
+line-height: 21px;
+letter-spacing: 0%;
+text-align: center;
   margin-right: 13px;
 }
 

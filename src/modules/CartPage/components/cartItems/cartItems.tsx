@@ -10,7 +10,7 @@ import {
 } from '../../../../features/CartSlice';
 import { IoCloseSharp } from 'react-icons/io5';
 import { useAppDispatch } from '../../../../app/hooks';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 type Props = {
   products: CartItem[];
 };
@@ -28,7 +28,14 @@ export const CartItems = ({ products }: Props) => {
   const handleDecrement = id => {
     dispach(decrementQuantity(id));
   };
+  const navigate = useNavigate();
+const location = useLocation();
 
+const goToDetails = (productId: string, category: string) => {
+  navigate(`/${category}/${productId}`, {
+    state: { from: location.state?.from || '/cart' },
+  });
+};
   return (
     <>
       {products.map(product => (
@@ -40,16 +47,14 @@ export const CartItems = ({ products }: Props) => {
               ])}
               onClick={() => handleItemClear(product.id)}
             />
-            <Link
-              to={`/${product.category}/${product.itemId}`}
-              className={styles.cartItem__link}
-            >
-              <img
-                src={`./${product.image}`}
-                className={styles.cartItem__image}
-              />
-              <p className={styles.cartItem__title}>{product.name}</p>
-            </Link>
+           <div
+  className={styles.cartItem__link}
+  onClick={() => goToDetails(product.itemId, product.category)}
+  style={{ cursor: 'pointer' }}
+>
+  <img src={`./${product.image}`} className={styles.cartItem__image} />
+  <p className={styles.cartItem__title}>{product.name}</p>
+</div>
           </div>
           <div className={styles.cartItem__quantity}>
             <div className={styles.cartItem__box}>

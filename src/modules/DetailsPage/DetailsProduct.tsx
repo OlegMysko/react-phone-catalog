@@ -58,7 +58,9 @@ export const DetailsProduct = () => {
     const model = findModel(color, product?.capacity);
 
     if (model) {
-      navigate(`/${category}/${model.id}`);
+      navigate(`/${category}/${model.id}`, {
+        state: { from: location.state?.from  },
+      });
     }
   };
 
@@ -67,7 +69,9 @@ export const DetailsProduct = () => {
     const model = findModel(product?.color, capasity);
 
     if (model) {
-      navigate(`/${category}/${model.id}`);
+     navigate(`/${category}/${model.id}`, {
+      state: { from: location.state?.from },
+    });
     }
   };
 

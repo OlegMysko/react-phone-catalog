@@ -1,4 +1,4 @@
-
+# REACT-PHONE_CATALOG
 - [DEMO LINK](https://olegmysko.github.io/react-phone-catalog/)
 - [FIGMA DESIGN](https://www.figma.com/design/xMK2Dy0mfBbJJSNctmOuLW/Phone-catalog--V2--Rounded-Style-1?node-id=0-1&p=f)
 
@@ -47,3 +47,4 @@
 ```bash
 npm install
 npm start
+

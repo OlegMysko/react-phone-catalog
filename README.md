@@ -1,14 +1,11 @@
 # REACT-PHONE_CATALOG
-- ua [Українська версія](README.ua.md)
+
 - [DEMO LINK](https://olegmysko.github.io/react-phone-catalog/)
 - [FIGMA DESIGN](https://www.figma.com/design/xMK2Dy0mfBbJJSNctmOuLW/Phone-catalog--V2--Rounded-Style-1?node-id=0-1&p=f)
 
+##  README (UA)
+- ua [Українська версія readme](README.ua.md)
 
----
-
-##  README (EN)
-
-```md
 # Product Catalog App
 
 A modern **Product Catalog** application built with **React, TypeScript, and Redux**.

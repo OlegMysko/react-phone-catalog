@@ -1,7 +1,7 @@
 import styles from './ProductCart.module.scss';
 import { Product } from '../../types/products';
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Buttons } from '../buttons/Buttons';
 type Props = {
   products: Product[];
@@ -9,9 +9,23 @@ type Props = {
 };
 
 export const ProductCart = ({ products, types }: Props) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   if (!products) {
     return null;
   }
+
+  const goToDetails = (productId: string, category: string) => {
+    const currentPath = location.pathname;
+    let from = location.state?.from;
+
+    if (!from) {
+      from = currentPath === '/' ? '/' : `/${category}`;
+    }
+
+    navigate(`/${category}/${productId}`, { state: { from } });
+  };
 
   return (
     <>
@@ -22,13 +36,14 @@ export const ProductCart = ({ products, types }: Props) => {
           })}
           key={product.id}
         >
-          <Link
+          <div
             className={styles.card__link}
-            to={`/${product.category}/${product.itemId || product.id}`}
-          >
+            onClick={() =>
+              goToDetails(product.itemId || product.id, product.category)}
+            style={{ cursor: 'pointer' }}>
             <img className={styles.card__image} src={`./${product.image}`} />
             <h4 className={styles.card__name}>{product.name}</h4>
-          </Link>
+          </div>
 
           {types === 'new' && (
             <span className={styles.card__fullprice}>${product.fullPrice}</span>

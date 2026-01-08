@@ -1,7 +1,7 @@
 /* eslint-disable */
 import styles from './TitlePages.module.scss';
 import { useAppSelector } from '../../app/hooks';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { IoIosArrowBack } from 'react-icons/io';
 type Props = {
   type:
@@ -28,7 +28,7 @@ const titles: Record<Props['type'], string | null> = {
 export const TitlePages = ({ type }: Props) => {
   const favourite = useAppSelector(state => state.favourite.favouriteItems);
   const navigate = useNavigate();
-
+const location = useLocation();
   const productName = useAppSelector(
     state => state.productDetail.product?.name,
   );
@@ -39,15 +39,11 @@ export const TitlePages = ({ type }: Props) => {
     count = products.filter(product => product.category === type).length;
   }
 
-  const goBack = () => {
-    if (window.history.length > 2) {
-      navigate(-1);
-    } else {
-      const category = location.pathname.split('/')[1];
 
-      navigate(`/${category}`);
-    }
-  };
+
+const goBack = () => {
+  navigate(location.state?.from || '/'); 
+};
 
   return (
     <div className={styles.title}>
